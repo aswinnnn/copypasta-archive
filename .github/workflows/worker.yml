@@ -1,6 +1,7 @@
 name: worker
 
 on:
+  push
   schedule:
     - cron: '30 1 * * *' # runs at 7:00pm IST everyday
 
