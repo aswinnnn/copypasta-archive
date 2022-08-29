@@ -17,6 +17,9 @@ jobs:
         with:
           python-version: '3.10.4' # install the python version needed
           
+      - name: install lib 
+        run: python -m pip install urllib3
+
       - name: execute py script 
         run: python worker.py
           
