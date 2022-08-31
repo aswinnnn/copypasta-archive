@@ -13,6 +13,6 @@ content = loads(content.data.decode('utf-8'))
 pasta = content['data']['children'][0]['data']['selftext']
 title = content['data']['children'][0]['data']['title']
 
-with open(Path(rf".\pasta\{file}"), "x", encoding='utf-8') as f:
+with open(Path(f"\pasta\{file}"), "x", encoding='utf-8') as f:
     f.write(f"{title}\n\n{pasta}")
 
