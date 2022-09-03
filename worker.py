@@ -1,18 +1,21 @@
 from json import loads
-import urllib3
+import requests
 from datetime import datetime
 from pathlib import Path 
+import os
 
+bp = os.getcwd()
 file = datetime.now().strftime('%d_%m_%Y.txt')
+p = Path(f"{bp}/pasta/{file}")
 
-http = urllib3.PoolManager()
+headers = {'User-agent': "Aswins lovely gh actions worker"}
+
 url = "https://www.reddit.com/r/copypasta/top.json"
-content = http.request('GET', url)
-content = loads(content.data.decode('utf-8'))
+content = (requests.get(url, headers=headers)).json()
 
 pasta = content['data']['children'][0]['data']['selftext']
 title = content['data']['children'][0]['data']['title']
 
-with open(Path(rf"/pasta/{file}"), "x", encoding='utf-8') as f:
+with open(p, "x", encoding='utf-8') as f:
     f.write(f"{title}\n\n{pasta}")
 
