@@ -4,8 +4,13 @@ from datetime import datetime
 from pathlib import Path 
 import os
 
+def get_last():
+    fs = os.listdir(Path(f"{os.getcwd()}/pasta/"))
+    ls = ( len(fs) - 1 ) + 1
+    return ls 
+
 bp = os.getcwd()
-file = datetime.now().strftime('%d_%m_%Y.txt')
+file = f"{get_last()}.txt"
 p = Path(f"{bp}/pasta/{file}")
 
 headers = {'User-agent': "Aswins lovely gh actions worker"}
