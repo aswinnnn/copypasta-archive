@@ -24,3 +24,8 @@ title = content['data']['children'][0]['data']['title']
 with open(p, "x", encoding='utf-8') as f:
     f.write(f"{title}\n\n{pasta}")
 
+with open(Path(f"{os.getcwd()}/latest"), "w", encoding='utf-8') as f:
+    f.write(f"{(get_last()) - 1}")
+
+    
+
