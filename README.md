@@ -1,4 +1,4 @@
-## copypasta-archiver
+## copypasta-archive
 
 ---
 
